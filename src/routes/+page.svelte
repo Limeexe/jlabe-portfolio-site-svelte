@@ -3,6 +3,8 @@
     import BentoCard from '$lib/components/BentoCard.svelte';
 	import Button from '$lib/components/Button.svelte';
 
+	import {PUBLIC_WEB3FORMS_KEY} from '$env/static/public';
+
     const techStack: string[] = ['React', 'Svelte', 'TypeScript', 'Tailwinds', 'WordPress', 'Python', 'C', 'C++', 'SQL'];
 
 	let isSubmitting = $state(false);
@@ -14,6 +16,8 @@
 
 		const form = e.target as HTMLFormElement;
 		const formData = new FormData(form);
+
+		formData.append("access_key", PUBLIC_WEB3FORMS_KEY);
 
 		try {
 			const response = await fetch('https://api.web3forms.com/submit', {method: 'POST', body: formData});

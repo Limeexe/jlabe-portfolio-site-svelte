@@ -1,32 +1,8 @@
 <script lang="ts">
-	// Import icons
-	import { Menu, X, Code, Mail } from 'lucide-svelte';
-	
-	// Import components
-	import Home from '$lib/components/Home.svelte';
-	import Projects from '$lib/components/Projects.svelte';
-    import Services from '$lib/components/Services.svelte';
-	import About from '$lib/components/About.svelte';
-	import Contact from '$lib/components/Contact.svelte';
-	import Button from '$lib/components/Button.svelte';	
+    import {Zap, ArrowUpRight, ArrowRight} from 'lucide-svelte';
+    import BentoCard from '$lib/components/BentoCard.svelte';
 
-	// Define reactive state using Svelte 5 Runes
-	let currentPage = $state('home');
-	let isMobileMenuOpen = $state(false);
-
-	// Navigation function passed down to components
-	const navigate = (page: string) => {
-		currentPage = page;
-		isMobileMenuOpen = false;
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-	};
-
-	const navItems = [
-		{ id: 'home', label: 'Index' },
-		{ id: 'projects', label: 'Work' },
-        { id: 'services', label: 'Services' },
-		{ id: 'about', label: 'Profile' },
-	];
+    const techStack: string[] = ['React', 'Svelte', 'TypeScript', 'Tailwinds', 'WordPress', 'Python', 'C', 'C++'];
 </script>
 
 <svelte:head>
@@ -50,92 +26,68 @@
 	</script>
 </svelte:head>
 
-<div class="min-h-screen bg-[#050505] text-zinc-50 font-sans selection:bg-white selection:text-black flex flex-col relative overflow-x-hidden">
-	
-	<div class="bg-noise"></div>
-	<div class="fixed inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden">
-		<div class="w-[150vw] h-[150vh] opacity-30 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-900 via-[#050505] to-[#050505]"></div>
-	</div>
+<div class="space-y-6 md:space-y-8 animate-reveal pb-24">
+    <!-- Hero Section -->
+	<section class="pt-24 md:pt-36 pb-12 md:pb-20 flex flex-col items-center text-center px-4 relative z-10">
+		<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/3 text-xs font-mono text-zinc-400 uppercase tracking-widest mb-10 animate-reveal">
+			<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+			Available for new projects
+		</div>
+		
+		<div class="space-y-6 max-w-5xl mx-auto animate-reveal delay-100">
+			<h1 class="text-5xl sm:text-7xl md:text-[6rem] font-bold tracking-tighter text-white leading-[0.9] text-balance">
+				Engineering <span class="text-zinc-500">digital</span><br />
+				experiences.
+			</h1>
+			<p class="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto font-light leading-relaxed mt-8">
+				Hybrid Web Developer & AI Engineer. Specializing in zero-cost edge architectures, mobile-first design, and deep technical optimizations.
+			</p>
+		</div>
+	</section>
 
-	<nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-		<div class="pointer-events-auto glass-pill px-2 py-2 rounded-full flex items-center justify-between w-auto md:gap-4 gap-12 shadow-2xl transition-all duration-300">
+    <!-- The Bento Box Grid -->
+	<sections class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-[auto_auto] gap-4 md:gap-6 z-10 relative">
+		
+		<!-- Massive featured card -->
+		<BentoCard className="md:col-span-2 md:row-span-2 min-h-100 flex flex-col justify-between animate-reveal delay-200" hover={true}>
+			<div class="flex justify-between items-start mb-8">
+				<div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+					<Zap size={20} class="text-white" />
+				</div>
+				<!-- Svelte 5 uses standard HTML onclick instead of on:click -->
+				<a href="/projects" aria-label="View Projects" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
+					<ArrowUpRight size={18} />
+				</a>
+			</div>
 			
-			<a href="#home" aria-label="Return to homepage" onclick={(e) => {e.preventDefault(); navigate('home'); }} class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-95 transition-transform shrink-0">
-				<Code size={18} strokeWidth={2.5} />
-			</a>
+			<div>
+				<span class="text-xs font-mono text-zinc-500 uppercase tracking-widest block mb-4">Featured Capability</span>
+				<h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter leading-[1.1] mb-4">
+					Lighthouse <br class="hidden md:block"/> Acceleration.
+				</h2>
+				<p class="text-zinc-400 font-light max-w-md">
+					Refactoring resource-heavy JavaScript and implementing strict memory handling to boost native performance from 40 to 100.
+				</p>
+			</div>
+		</BentoCard>
 
-			<div class="hidden md:flex items-center space-x-1">
-				{#each navItems as item}
-					<a href="#{item.id}" onclick={(e) => {e.preventDefault(); navigate(item.id);}} class="px-4 py-2 rounded-full text-sm font-medium transition-colors {currentPage === item.id ? 'text-white bg-white/10' : 'text-zinc-400 hover:text-white'}">
-						{item.label}
-					</a>
+        <!-- About/Stack Card -->
+		<BentoCard className="md:col-span-1 animate-reveal delay-400">
+			<span class="text-xs font-mono text-zinc-500 uppercase tracking-widest block mb-6">Arsenal</span>
+			<div class="flex flex-wrap gap-2">
+				{#each techStack as tech}
+					<span class="px-3 py-1.5 rounded-full border border-white/10 text-xs text-zinc-300 bg-white/2">
+						{tech}
+					</span>
 				{/each}
 			</div>
-
-			<div class="flex items-center gap-2 shrink-0">
-				<a href="#contact" onclick={(e) => {e.preventDefault();navigate('contact');}} class="hidden md:flex px-5 py-2.5 rounded-full text-sm font-medium text-white bg-white/10 hover:bg-white hover:text-black transition-colors whitespace-nowrap">
-					Contact
-				</a>
-				
-				<button aria-label="Toggle mobile menu" aria-expanded={isMobileMenuOpen} onclick={() => isMobileMenuOpen = !isMobileMenuOpen} class="md:hidden w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
-					{#if isMobileMenuOpen}
-						<X size={20} />
-					{:else}
-						<Menu size={20} />
-					{/if}
-				</button>
+			<div class="mt-8 pt-8 border-t border-white/5">
+				 <a href="/about" class="text-sm text-white flex items-center gap-2 group-hover:gap-3 transition-all">
+					 Read the story <ArrowRight size={16} class="text-zinc-500 group-hover:text-white transition-colors" />
+				 </a>
 			</div>
-		</div>
-	</nav>
+		</BentoCard>
 
+    </sections>
 
-	<!-- Mobile Menu -->
-
-	<div class="fixed inset-0 bg-[#050505]/95 backdrop-blur-2xl z-40 flex flex-col justify-center items-center transition-opacity duration-500 {isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}">
-		<div class="flex flex-col items-center space-y-8">
-			{#each navItems as item}
-				<a
-					href="#{item.id}"
-					onclick={(e) => {e.preventDefault();navigate(item.id);}}
-					class="text-4xl font-bold tracking-tighter transition-all {currentPage === item.id ? 'text-white scale-110' : 'text-zinc-600 hover:text-white'}"
-				>
-					{item.label}
-				</a>
-			{/each}
-			<div class="pt-8 w-full max-w-xs">
-				<Button onclick={(e) => {e.preventDefault();navigate('contact');}} className="w-full text-lg py-4">
-					Start Project
-				</Button>
-			</div>
-		</div>
-	</div>
-
-	<main class="flex-grow w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 relative z-10">
-		{#if currentPage === 'home'}
-			<Home {navigate} />
-		{:else if currentPage === 'services'}
-			<Services {navigate} /> 
-		{:else if currentPage === 'projects'}
-			<Projects />
-		{:else if currentPage === 'about'}
-			<About />
-		{:else if currentPage === 'contact'}
-			<Contact />
-		{/if}
-	</main>
-
-	<footer class="border-t border-white/10 bg-transparent relative z-10 mt-auto">
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-			<div class="flex flex-col md:flex-row justify-between items-center gap-4">
-				<span class="font-mono text-xs uppercase tracking-widest text-zinc-500">
-					© 2026. Engineered for the Edge.
-				</span>
-				
-				<a 
-					href="#contact" aria-label="Send an email" onclick={(e) => {e.preventDefault();navigate('contact');}} class="text-zinc-500 hover:text-white transition-colors">
-					<Mail size={18} />
-				</a>
-			</div>
-		</div>
-	</footer>
 </div>

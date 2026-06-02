@@ -36,15 +36,15 @@
 
 	<script type="application/ld+json">
 		{
-			"@content": "https://schema.org",
+			"@context": "https://schema.org",
 			"@type": "ProfessionalService",
 			"name": "High-Performance Developer",
-			"image": "./developer-profile.jpg",
+			"image": "https://jla-ph-freelance-developer.pages.dev/developer-profile.jpg",
 			"description": "Hybrid Developer & AI Engineer specializing in strict memory handling, custom NLP solutions, and mobile-first UI/UX.",
 			"address": {
 				"@type": "PostalAddress",
 				"addressCountry": "PH"
-			}
+			},
 			"priceRange": "$$"
 		}
 	</script>
@@ -95,7 +95,7 @@
 		<div class="flex flex-col items-center space-y-8">
 			{#each navItems as item}
 				<a
-					href="{item.id}"
+					href="#{item.id}"
 					onclick={(e) => {e.preventDefault();navigate(item.id);}}
 					class="text-4xl font-bold tracking-tighter transition-all {currentPage === item.id ? 'text-white scale-110' : 'text-zinc-600 hover:text-white'}"
 				>

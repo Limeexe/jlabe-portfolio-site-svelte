@@ -1,16 +1,16 @@
 <script lang="ts">
-	// 1. Import icons
+	// Import icons
 	import { Menu, X, Code, Mail } from 'lucide-svelte';
 	
-	// 2. Import your components using the $lib alias
+	// Import components
 	import Home from '$lib/components/Home.svelte';
 	import Projects from '$lib/components/Projects.svelte';
     import Services from '$lib/components/Services.svelte';
 	import About from '$lib/components/About.svelte';
 	import Contact from '$lib/components/Contact.svelte';
-	import Button from '$lib/components/Button.svelte';
+	import Button from '$lib/components/Button.svelte';	
 
-	// 3. Define reactive state using Svelte 5 Runes
+	// Define reactive state using Svelte 5 Runes
 	let currentPage = $state('home');
 	let isMobileMenuOpen = $state(false);
 
@@ -29,6 +29,27 @@
 	];
 </script>
 
+<svelte:head>
+	<title>High Performance Developer & AI Integrator | Philippines</title>
+	<meta name="description" content="Freelance Hybrid Developer and AI Engineer in the Philippines. Specializing in zero-cost edge architecture, mobile-first development, and Performance Optimization" />
+	<meta name="robots" content="index, follow" />
+
+	<script type="application/ld+json">
+		{
+			"@content": "https://schema.org",
+			"@type": "ProfessionalService",
+			"name": "High-Performance Developer",
+			"image": "./developer-profile.jpg",
+			"description": "Hybrid Developer & AI Engineer specializing in strict memory handling, custom NLP solutions, and mobile-first UI/UX.",
+			"address": {
+				"@type": "PostalAddress",
+				"addressCountry": "PH"
+			}
+			"priceRange": "$$"
+		}
+	</script>
+</svelte:head>
+
 <div class="min-h-screen bg-[#050505] text-zinc-50 font-sans selection:bg-white selection:text-black flex flex-col relative overflow-x-hidden">
 	
 	<div class="bg-noise"></div>
@@ -39,36 +60,24 @@
 	<nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
 		<div class="pointer-events-auto glass-pill px-2 py-2 rounded-full flex items-center justify-between w-auto md:gap-4 gap-12 shadow-2xl transition-all duration-300">
 			
-			<button 
-				onclick={() => navigate('home')}
-				class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-95 transition-transform shrink-0"
-			>
+			<a href="#home" aria-label="Return to homepage" onclick={(e) => {e.preventDefault(); navigate('home'); }} class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-95 transition-transform shrink-0">
 				<Code size={18} strokeWidth={2.5} />
-			</button>
+			</a>
 
 			<div class="hidden md:flex items-center space-x-1">
 				{#each navItems as item}
-					<button
-						onclick={() => navigate(item.id)}
-						class="px-4 py-2 rounded-full text-sm font-medium transition-colors {currentPage === item.id ? 'text-white bg-white/10' : 'text-zinc-400 hover:text-white'}"
-					>
+					<a href="#{item.id}" onclick={(e) => {e.preventDefault(); navigate(item.id);}} class="px-4 py-2 rounded-full text-sm font-medium transition-colors {currentPage === item.id ? 'text-white bg-white/10' : 'text-zinc-400 hover:text-white'}">
 						{item.label}
-					</button>
+					</a>
 				{/each}
 			</div>
 
 			<div class="flex items-center gap-2 shrink-0">
-				<button 
-					onclick={() => navigate('contact')} 
-					class="hidden md:flex px-5 py-2.5 rounded-full text-sm font-medium text-white bg-white/10 hover:bg-white hover:text-black transition-colors whitespace-nowrap"
-				>
+				<a href="#contact" onclick={(e) => {e.preventDefault();navigate('contact');}} class="hidden md:flex px-5 py-2.5 rounded-full text-sm font-medium text-white bg-white/10 hover:bg-white hover:text-black transition-colors whitespace-nowrap">
 					Contact
-				</button>
+				</a>
 				
-				<button 
-					onclick={() => isMobileMenuOpen = !isMobileMenuOpen}
-					class="md:hidden w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
-				>
+				<button aria-label="Toggle mobile menu" aria-expanded={isMobileMenuOpen} onclick={() => isMobileMenuOpen = !isMobileMenuOpen} class="md:hidden w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
 					{#if isMobileMenuOpen}
 						<X size={20} />
 					{:else}
@@ -79,18 +88,22 @@
 		</div>
 	</nav>
 
+
+	<!-- Mobile Menu -->
+
 	<div class="fixed inset-0 bg-[#050505]/95 backdrop-blur-2xl z-40 flex flex-col justify-center items-center transition-opacity duration-500 {isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}">
 		<div class="flex flex-col items-center space-y-8">
 			{#each navItems as item}
-				<button
-					onclick={() => navigate(item.id)}
+				<a
+					href="{item.id}"
+					onclick={(e) => {e.preventDefault();navigate(item.id);}}
 					class="text-4xl font-bold tracking-tighter transition-all {currentPage === item.id ? 'text-white scale-110' : 'text-zinc-600 hover:text-white'}"
 				>
 					{item.label}
-				</button>
+				</a>
 			{/each}
 			<div class="pt-8 w-full max-w-xs">
-				<Button onclick={() => navigate('contact')} className="w-full text-lg py-4">
+				<Button onclick={(e) => {e.preventDefault();navigate('contact');}} className="w-full text-lg py-4">
 					Start Project
 				</Button>
 			</div>
@@ -101,8 +114,9 @@
 		{#if currentPage === 'home'}
 			<Home {navigate} />
 		{:else if currentPage === 'services'}
-		<Services {navigate} /> {:else if currentPage === 'projects'}
-		<Projects />
+			<Services {navigate} /> 
+		{:else if currentPage === 'projects'}
+			<Projects />
 		{:else if currentPage === 'about'}
 			<About />
 		{:else if currentPage === 'contact'}
@@ -117,9 +131,10 @@
 					© 2026. Engineered for the Edge.
 				</span>
 				
-				<button onclick={() => navigate('contact')} class="text-zinc-500 hover:text-white transition-colors">
+				<a 
+					href="#contact" aria-label="Send an email" onclick={(e) => {e.preventDefault();navigate('contact');}} class="text-zinc-500 hover:text-white transition-colors">
 					<Mail size={18} />
-				</button>
+				</a>
 			</div>
 		</div>
 	</footer>

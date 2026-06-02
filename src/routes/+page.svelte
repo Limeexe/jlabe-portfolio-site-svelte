@@ -8,7 +8,6 @@
     const techStack: string[] = ['React', 'Svelte', 'TypeScript', 'Tailwinds', 'WordPress', 'Python', 'C', 'C++', 'SQL'];
 
 	let isSubmitting = $state(false);
-	let submitStatus = $state<'idle' | 'success' | 'error'>('idle');
 
 	const handleFormSubmit = async (e: SubmitEvent) => {
 		e.preventDefault();
@@ -22,17 +21,18 @@
 		try {
 			const response = await fetch('https://api.web3forms.com/submit', {method: 'POST', body: formData});
 
+			const data = await response.json();
+
 			if (response.ok) {
-				submitStatus = 'success';
+				alert("Success! Your message has been sent.");
 				form.reset();
 			} else {
-				submitStatus = 'error';
+				alert("Error: " + data.message);
 			}
 		} catch {
-			submitStatus = 'error';
+			alert("Something went wrong. Please try again.");
 		} finally {
 			isSubmitting = false;
-			setTimeout(()=>{submitStatus='idle';},5000);
 		}
 	};
 </script>
@@ -149,11 +149,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-2">
                     <label for="name" class="text-xs font-mono text-zinc-500 uppercase tracking-widest block">Name</label>
-                    <input type="text" id="name" name="name" required class="w-full bg-transparent border-b border-white/20 pb-2 text-white focus:outline-none focus:border-white transition-colors rounded-none placeholder:text-zinc-700" placeholder="John Doe">
+                    <input type="text" id="name" name="name" required class="w-full bg-transparent border-b border-white/20 pb-2 text-white focus:outline-none focus:border-white transition-colors rounded-none placeholder:text-zinc-700" placeholder="Enter Your Name">
                 </div>
                 <div class="space-y-2">
                     <label for="email" class="text-xs font-mono text-zinc-500 uppercase tracking-widest block">Email</label>
-                    <input type="email" id="email" name="email" required class="w-full bg-transparent border-b border-white/20 pb-2 text-white focus:outline-none focus:border-white transition-colors rounded-none placeholder:text-zinc-700" placeholder="john@example.com">
+                    <input type="email" id="email" name="email" required class="w-full bg-transparent border-b border-white/20 pb-2 text-white focus:outline-none focus:border-white transition-colors rounded-none placeholder:text-zinc-700" placeholder="Enter Your E-mail">
                 </div>
             </div>
 
@@ -166,12 +166,6 @@
                 <Button type="submit" variant="primary" className="w-full md:w-auto">
                     {isSubmitting ? 'Sending...' : 'Initiate Request'}
                 </Button>
-
-                {#if submitStatus === 'success'}
-                    <span class="text-sm text-emerald-500 font-medium">Message sent successfully!</span>
-                {:else if submitStatus === 'error'}
-                    <span class="text-sm text-red-500 font-medium">Something went wrong. Please try again.</span>
-                {/if}
             </div>
         </form>
     </section>

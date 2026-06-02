@@ -16,12 +16,14 @@
 		const form = e.target as HTMLFormElement;
 		const formData = new FormData(form);
 
-		formData.append("access_key", PUBLIC_WEB3FORMS_KEY);
+		formData.set("access_key", PUBLIC_WEB3FORMS_KEY);
 
 		try {
 			const response = await fetch('https://api.web3forms.com/submit', {method: 'POST', body: formData});
 
 			const data = await response.json();
+
+			console.log("My Key:", PUBLIC_WEB3FORMS_KEY, "Type:", typeof PUBLIC_WEB3FORMS_KEY)
 
 			if (response.ok) {
 				alert("Success! Your message has been sent.");

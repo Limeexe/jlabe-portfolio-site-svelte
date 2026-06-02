@@ -7,6 +7,7 @@
         variant?: 'primary'|'secondary';
         className?: string;
         type?: 'button'|'submit'|'reset';
+        disabled?: boolean;
         children?: Snippet;
         onclick?: MouseEventHandler<HTMLButtonElement>;
     }
@@ -15,11 +16,12 @@
         variant = 'primary',
         className = '',
         type = 'button',
+        disabled = false,
         children,
         onclick
     }: ButtonProps = $props();
 
-    const baseStyle = "group relative inline-flex items-center justify-center px-7 py-3.5 rounded-full font-medium transition-all duration-400 ease-out overflow-hidden";
+    const baseStyle = "group relative inline-flex items-center justify-center px-7 py-3.5 rounded-full font-medium transition-all duration-400 ease-out overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none";
 
     let variantStyle = $derived(
         variant === 'primary'

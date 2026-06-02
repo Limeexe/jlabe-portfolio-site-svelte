@@ -23,8 +23,6 @@
 
 			const data = await response.json();
 
-			console.log("My Key:", PUBLIC_WEB3FORMS_KEY, "Type:", typeof PUBLIC_WEB3FORMS_KEY)
-
 			if (response.ok) {
 				alert("Success! Your message has been sent.");
 				form.reset();

@@ -7,7 +7,7 @@
 
 	let { navigate }: ServicesProps = $props();
 
-	// Extracted from your personal development files
+
 	const services = [
 		{
 			title: "Lighthouse Acceleration",

@@ -4,7 +4,7 @@
 	import {Mail} from 'lucide-svelte';
 
 	// UI Components
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/JLAbe-logo-darkmode.svg';
 	import NavBar from '$lib/components/NavBar.svelte';
 	import Button from '$lib/components/Button.svelte';
 
@@ -14,7 +14,7 @@
 	let isMobileMenuOpen = $state(false);
 
 	const navItems = [
-		{ id: 'home', label: 'Index' },
+		{ id: '/', label: 'Index' },
 		{ id: 'projects', label: 'Work' },
         { id: 'services', label: 'Services' },
 		{ id: 'about', label: 'Profile' },

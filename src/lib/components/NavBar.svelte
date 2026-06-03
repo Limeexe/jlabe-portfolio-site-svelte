@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Menu, X, Code } from 'lucide-svelte';
 	import { page } from '$app/state';
+	import logo from '$lib/assets/JLAbe-Logo.svg';
 
 	let {isMobileMenuOpen = $bindable(false)}=$props();
 
@@ -32,6 +33,7 @@
 		
 		<a href="/" aria-label="Return to homepage" class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-95 transition-transform shrink-0">
 			<Code size={18} strokeWidth={2.5} aria-hidden="true" />
+			<img src={logo} alt="JLAbe Logo" class="object-contain rounded-full" />
 		</a>
 
 		<div class="hidden md:flex items-center space-x-1 px-4">

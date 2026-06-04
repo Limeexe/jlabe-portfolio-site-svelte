@@ -48,11 +48,12 @@
 			"@type": "ProfessionalService",
 			"name": "JLAbe's Digital Essentials",
 			"image": "https://jlabe-ph-freelance-developer.pages.dev/developer-profile.jpg",
-			"description": "Hybrid Developer & AI Engineer providing enterprise-grade WordPress, SvelteKit, custom NLP solutions, and mobile-first UI/UX.",
+			"description": "Enterprise-grade web application development, AI integration, software architecture, and technical consulting services.",
 			"address": {
-				"@type": "PostalAddress",
-				"addressCountry": "PH"
-			},
+                "@type": "PostalAddress",
+                "addressRegion": "Bicol",
+                "addressCountry": "Philippines"
+            }
 			"priceRange": "$$"
 		}
 	</script>
@@ -61,7 +62,7 @@
 <div class="space-y-12 md:space-y-16 pb-24">
 	
 	<section class="pt-28 md:pt-20 pb-12 md:pb-20 flex flex-col items-center text-center px-4 relative z-10">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] text-xs font-mono text-zinc-400 uppercase tracking-widest mb-10">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/3 text-xs font-mono text-zinc-400 uppercase tracking-widest mb-10">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true"></span>
             Available for freelance projects
         </div>
@@ -118,7 +119,7 @@
             <p class="text-zinc-400 font-light text-sm leading-relaxed mb-6">
                 Whether executing massive technical overhauls for Peninsula Plumbing Solutions or building complex templates for Twin Home Buyer, I deliver architectures that help businesses scale.
             </p>
-            <a href="/projects" class="text-sm font-medium text-white flex items-center gap-2 hover:gap-3 transition-all inline-flex">
+            <a href="/projects" class="text-sm font-medium text-white flex items-center gap-2 hover:gap-3 transition-all">
                 View case studies <ArrowRight size={16} class="text-zinc-500" aria-hidden="true" />
             </a>
         </BentoCard>
@@ -129,7 +130,7 @@
             <p class="text-zinc-400 font-light text-sm leading-relaxed mb-6">
                 I'm a hybrid web developer and AI engineer. I believe that top-tier web engineering shouldn't be locked behind massive corporate budgets. Let's translate your complex problems into simple digital solutions.
             </p>
-            <a href="/about" class="text-sm font-medium text-white flex items-center gap-2 hover:gap-3 transition-all inline-flex">
+            <a href="/about" class="text-sm font-medium text-white flex items-center gap-2 hover:gap-3 transition-all">
                 Read my story <ArrowRight size={16} class="text-zinc-500" aria-hidden="true" />
             </a>
         </BentoCard>

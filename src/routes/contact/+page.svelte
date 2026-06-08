@@ -54,6 +54,7 @@
 	};
 </script>
 
+
 <div class="animate-reveal pb-24 pt-24 max-w-3xl mx-auto">
     <div class="mb-16">
         <h2 class="text-5xl md:text-[5rem] font-bold text-white tracking-tighter leading-[0.9] mb-6">Initiate.</h2>

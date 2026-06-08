@@ -2,6 +2,8 @@
 	import { ArrowUpRight } from 'lucide-svelte';
 </script>
 
+
+
 <div class="space-y-12 animate-reveal pb-24 pt-24">
 	<div class="max-w-2xl">
 		<h2 class="text-5xl md:text-6xl font-bold text-white tracking-tighter leading-[0.9] mb-6">Proof of Work.</h2>
@@ -23,7 +25,7 @@
 							<span class="px-3 py-1 rounded-full border border-white/20 text-xs font-mono text-zinc-300 backdrop-blur-md">WP</span>
 						</div>
 						<h3 class="text-4xl md:text-5xl font-bold text-white tracking-tighter mb-4 group-hover:translate-x-2 transition-transform duration-500">
-							Equity Track Optimization
+							WordPress/Elementor Optimization
 						</h3>
 						<p class="text-lg text-zinc-400 font-light">
 							Deep code refactoring and memory handling to boost native Google Lighthouse scores from 40 to 100 for Peninsula Plumbing & Twin Home Buyer.
@@ -46,12 +48,13 @@
 						<div class="flex items-center gap-3 mb-6">
 							<span class="px-3 py-1 rounded-full border border-white/20 text-xs font-mono text-zinc-300 backdrop-blur-md">AI / ML</span>
 							<span class="px-3 py-1 rounded-full border border-white/20 text-xs font-mono text-zinc-300 backdrop-blur-md">Python</span>
+							<span class="px-3 py-1 rounded-full border border-white/20 text-xs font-mono text-zinc-300 backdrop-blur-md">Research</span>
 						</div>
 						<h3 class="text-4xl md:text-5xl font-bold text-white tracking-tighter mb-4 group-hover:translate-x-2 transition-transform duration-500">
-							NLP Fake News Classifier
+							Development and Prototype Implementation of a Browser Extension for Fake News Detection in Philippine News Using Natural Language Processing Algorithms
 						</h3>
 						<p class="text-lg text-zinc-400 font-light">
-							Developed and pre-trained a complex classification model using the RoBERTa architecture specifically engineered for deep contextual semantic analysis.
+							Developed and pre-trained a complex classification model using the RoBERTa with Linear Layer architecture specifically engineered for combining textual embeddings with additional structured features.
 						</p>
 					</div>
 					

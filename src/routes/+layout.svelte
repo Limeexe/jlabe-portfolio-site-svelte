@@ -21,7 +21,11 @@
 	];
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<svelte:head><link rel="icon" href={favicon} />
+	<title>JLAbe High Performance Development & AI | Philippines</title>
+	<meta name="description" content="Freelance Hybrid Developer and AI Engineer in the Philippines. Specializing in zero-cost edge architecture, mobile-first development, and Performance Optimization" />
+	<meta name="robots" content="index, follow" />
+</svelte:head>
 
 
 <div class="min-h-screen bg-[#050505] text-zinc-50 font-sans selection:bg-white selection:text-black flex flex-col relative overflow-x-hidden">

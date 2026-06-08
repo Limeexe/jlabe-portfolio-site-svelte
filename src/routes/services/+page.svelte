@@ -194,9 +194,9 @@
 </script>
 
 <svelte:head>
-    <title>JLAbe High Performance Development & AI | Philippines</title>
-	<meta name="description" content="Freelance Hybrid Developer and AI Engineer in the Philippines. Specializing in zero-cost edge architecture, mobile-first development, and Performance Optimization" />
-	<meta name="robots" content="index, follow" />
+    <title>Technical Capabilities & Pricing | JLAbe High Performance Development & AI</title>
+	<meta name="description" content="Explore capabilities, technical retainers, and AI integration services starting at highly disruptive global rates." />
+
 	{@html `<script type="application/ld+json">${JSON.stringify(schemaData)}</script>`}
 </svelte:head>
 

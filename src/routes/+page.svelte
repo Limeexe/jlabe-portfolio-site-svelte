@@ -70,7 +70,7 @@
         <div class="space-y-8 max-w-5xl mx-auto">
             <h1 class="text-6xl sm:text-7xl md:text-[7rem] font-bold tracking-tighter text-white leading-[0.85] text-balance">
                 Enterprise-Grade Engineering. <br class="hidden md:block"/>
-                <span class="text-zinc-600">Independent Pricing.</span>
+                <span class="text-zinc-600">Performance Guaranteed.</span>
             </h1>
             <p class="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto font-light leading-relaxed mt-8 text-balance">
                 I build lightning-fast, highly secure, and reliable websites tailored exactly to your vision—without the bloated agency price tag.
@@ -105,7 +105,7 @@
                     From Sluggish to <br class="hidden md:block"/> Lightning Fast.
                 </h2>
                 <p class="text-zinc-400 font-light max-w-md leading-relaxed">
-                    Speed is SEO. I specialize in diving into messy, heavy codebases and refactoring them for maximum efficiency—recently taking a client's native Google Lighthouse score from a failing 40 to a near-perfect 100.
+                    Speed is SEO. I specialize in diving into messy, heavy codebases and refactoring them for maximum efficiency—taking a client's native Google Lighthouse score from a failing 40 to a near-perfect 100.
                 </p>
             </div>
         </BentoCard>
@@ -115,9 +115,9 @@
                 <ShieldCheck size={18} class="text-zinc-300" aria-hidden="true" />
             </div>
             <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest block mb-4">Client Success</span>
-            <h3 class="text-2xl font-bold text-white tracking-tighter mb-3">Trusted by Local Business.</h3>
+            <h3 class="text-2xl font-bold text-white tracking-tighter mb-3">Trustworthy Services.</h3>
             <p class="text-zinc-400 font-light text-sm leading-relaxed mb-6">
-                Whether executing massive technical overhauls for Peninsula Plumbing Solutions or building complex templates for Twin Home Buyer, I deliver architectures that help businesses scale.
+                Whether executing massive technical overhauls for an E-commerce website or building complex templates for a Business Portfolio Website, I deliver architectures that help businesses scale.
             </p>
             <a href="/projects" class="text-sm font-medium text-white flex items-center gap-2 hover:gap-3 transition-all">
                 View case studies <ArrowRight size={16} class="text-zinc-500" aria-hidden="true" />
@@ -126,7 +126,7 @@
 
         <BentoCard className="md:col-span-1">
             <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest block mb-4">The Developer</span>
-            <h3 class="text-2xl font-bold text-white tracking-tighter mb-3">Hi, I'm JLA.</h3>
+            <h3 class="text-2xl font-bold text-white tracking-tighter mb-3">Hi, I'm John.</h3>
             <p class="text-zinc-400 font-light text-sm leading-relaxed mb-6">
                 I'm a hybrid web developer and AI engineer. I believe that top-tier web engineering shouldn't be locked behind massive corporate budgets. Let's translate your complex problems into simple digital solutions.
             </p>
